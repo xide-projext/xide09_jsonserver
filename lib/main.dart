@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'TodoAddScreen.dart';
+import 'TodoScreen.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -24,7 +27,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: TodoListScreen(),
     );
   }
 }
@@ -106,7 +109,14 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () {
+          print('add');
+          // move to page add TodoAddscreen
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => TodoAddScreen()),
+          );
+        },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
