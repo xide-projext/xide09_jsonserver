@@ -23,7 +23,17 @@ class TodoListScreen extends StatelessWidget {
                   title: Text(todo.title),
                   trailing: Checkbox(
                     value: todo.completed,
-                    onChanged: (value) {},
+                    onChanged: (value) {
+                      // TODO : update todo
+                      print('update');
+                      TodoService.updateTodo(
+                        Todo(
+                          id: todo.id,
+                          title: todo.title,
+                          completed: value!,
+                        ),
+                      );
+                    },
                   ),
                 );
               },
