@@ -3,7 +3,19 @@ import 'TodoAddScreen.dart';
 import 'TodoService.dart';
 import 'Todo.dart';
 
-class TodoListScreen extends StatelessWidget {
+class TodoListScreen extends StatefulWidget {
+  const TodoListScreen({Key? key}) : super(key: key);
+
+  @override
+  State<TodoListScreen> createState() => _TodoListScreenState();
+}
+
+class _TodoListScreenState extends State<TodoListScreen> {
+  updateListUI() {
+    setState((() => {}));
+    print("updateListUI");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +64,9 @@ class TodoListScreen extends StatelessWidget {
           // move to page add TodoAddscreen
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => TodoAddScreen()),
+            MaterialPageRoute(
+                builder: (context) =>
+                    TodoAddScreen(callUpdateUI: updateListUI)),
           );
         },
       ),

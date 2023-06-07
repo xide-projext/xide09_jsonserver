@@ -3,6 +3,9 @@ import 'TodoService.dart';
 import 'Todo.dart';
 
 class TodoAddScreen extends StatefulWidget {
+  Function callUpdateUI;
+
+  TodoAddScreen({Key? key, required this.callUpdateUI}) : super(key: key);
   @override
   _TodoAddScreenState createState() => _TodoAddScreenState();
 }
@@ -48,7 +51,7 @@ class _TodoAddScreenState extends State<TodoAddScreen> {
                     );
 
                     final createdTodo = await TodoService.createTodo(newTodo);
-
+                    widget.callUpdateUI();
                     Navigator.pop(context, createdTodo);
                   }
                 },
