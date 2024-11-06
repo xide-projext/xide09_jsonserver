@@ -45,7 +45,7 @@ class _TodoAddScreenState extends State<TodoAddScreen> {
                 onPressed: () async {
                   if (_formKey.currentState!.validate()) {
                     final newTodo = Todo(
-                      id: 0,
+                      id: '0',
                       title: _titleController.text,
                       completed: false,
                     );

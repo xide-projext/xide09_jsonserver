@@ -3,7 +3,7 @@ import 'Todo.dart';
 import 'dart:convert';
 
 class TodoService {
-  static const baseUrl = 'http://localhost:3000';
+  static const baseUrl = 'http://localhost:3003';
   static const headers = {'Content-Type': 'application/json'};
 
   // GET /todos

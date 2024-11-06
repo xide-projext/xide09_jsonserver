@@ -14,7 +14,7 @@ Todo.fromJson() 팩토리 생성자: JSON 문자열에서 Todo 객체를 만드�
 toJson() 메서드: Todo 객체를 JSON 형식으로 변환하는 메서드입니다. 반환값은 Map<String, dynamic> 형식이며, id, title, completed 필드를 가지고 있습니다. 이 메서드는 HTTP 요청에서 Todo 객체를 전송하기 위해 사용됩니다.
  */
 class Todo {
-  final int? id; // Todo 항목의 고유 ID
+  final String id; // Todo 항목의 고유 ID
   final String title; // Todo 항목의 제목
   final bool completed; // Todo 항목이 완료되었는지 여부
 
@@ -28,7 +28,7 @@ class Todo {
   // JSON에서 Todo 객체를 만드는 생성자
   factory Todo.fromJson(Map<String, dynamic> json) {
     return Todo(
-      id: json['id'] as int?,
+      id: json['id'] as String,
       title: json['title'] as String,
       completed: json['completed'] as bool,
     );
