@@ -45,6 +45,11 @@ class _TodoListScreenState extends State<TodoListScreen> {
                           completed: value!,
                         ),
                       );
+                      TodoService.getTodos();
+                      setState(() {
+                        
+                      });
+                      print("UI update 필요 ");
                     },
                   ),
                 );
