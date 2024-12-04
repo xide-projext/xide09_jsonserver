@@ -51,6 +51,22 @@ class _TodoListScreenState extends State<TodoListScreen> {
                       });
                       print("UI update 필요 ");
                     },
+                      IconButton(
+                        icon: Icon(Icons.delete, color: Colors.red),
+                        onPressed: () async {
+                          try {
+                            await TodoService.deleteTodo(todo.id);
+                            setState(() {});
+                          } catch (e) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text('삭제하는 중 오류가 발생했습니다: $e'),
+                                backgroundColor: Colors.red,
+                              ),
+                            );
+                          }
+                        },
+                      ),
                   ),
                 );
               },

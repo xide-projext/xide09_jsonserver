@@ -68,12 +68,12 @@ class TodoService {
   }
 
   // DELETE /todos/:id
-  static Future<void> deleteTodo(int id) async {
+  static Future<void> deleteTodo(String id) async {
     // HTTP DELETE 요청을 보내서 Todo 항목을 삭제합니다.
     final response = await http.delete(Uri.parse('$baseUrl/todos/$id'));
 
     // HTTP 요청이 성공적으로 완료되었는지 확인합니다.
-    if (response.statusCode != 204) {
+    if (response.statusCode != 200) {
       // HTTP 요청이 실패한 경우 예외를 던집니다.
       throw Exception('Failed to delete todo');
     }
